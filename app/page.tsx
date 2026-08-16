@@ -14,9 +14,9 @@ const services = [
 ];
 
 const packages = [
-  { name: "Light / Small Vehicles", options: ["Wash & Dry - R80", "Full Wash - R120", "Engine Wash - R400", "Body Polish + R80"], accent: "cyan" },
-  { name: "SUV / Bakkies / 4x4", options: ["Wash & Dry - R100", "Full Wash - R150", "Engine Wash - R400", "Body Polish + R100"], accent: "blue" },
-  { name: "Mini Bus / Kombi", options: ["Wash & Dry - R150", "Full Wash - R200", "Engine Wash - R400", "Body Polish + R150"], accent: "indigo" },
+  { name: "Light / Small Vehicles", options: ["Wash & Dry - R80", "Full Wash - R120", "Engine Wash - R300", "Body Polish + R80"], accent: "cyan" },
+  { name: "SUV / Bakkies / 4x4", options: ["Wash & Dry - R100", "Full Wash - R150", "Engine Wash - R300", "Body Polish + R100"], accent: "blue" },
+  { name: "Mini Bus / Kombi", options: ["Wash & Dry - R150", "Full Wash - R200", "Engine Wash - R300", "Body Polish + R150"], accent: "indigo" },
 ];
 
 const highlights = [
