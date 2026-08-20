@@ -17,6 +17,7 @@ const packages = [
   { name: "Light / Small Vehicles", options: ["Wash & Dry - R80", "Full Wash - R120", "Engine Wash - R300", "Body Polish + R80"], accent: "cyan" },
   { name: "SUV / Bakkies / 4x4", options: ["Wash & Dry - R100", "Full Wash - R150", "Engine Wash - R300", "Body Polish + R100"], accent: "blue" },
   { name: "Mini Bus / Kombi", options: ["Wash & Dry - R150", "Full Wash - R200", "Engine Wash - R300", "Body Polish + R150"], accent: "indigo" },
+  { name: "Deep Cleaning", options: ["4 Seats - R350", "5 Seats - R450", "7 Seats - R550", "Roof - R350", "Boot - R350"], accent: "indigo" }
 ];
 
 const highlights = [
@@ -306,23 +307,49 @@ export default function Home() {
           </div>
 
           <div className="grid gap-4 lg:grid-cols-3">
-            {packages.map((pkg) => (
+            {packages.slice(0, 3).map((pkg) => (
               <article key={pkg.name} className="rounded-[26px] border border-cyan-400/25 bg-[linear-gradient(180deg,rgba(8,47,72,0.9),rgba(10,61,92,0.92))] p-5 shadow-lg">
                 <div className="mb-5 flex items-center justify-between gap-3">
                   <h3 className="text-xl font-bold text-white">{pkg.name}</h3>
                   <span className="rounded-full bg-cyan-400/20 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-cyan-200">
-                    from
+                    Pricing
                   </span>
                 </div>
 
                 <ul className="space-y-3">
                   {pkg.options.map((option) => (
-                    <li key={option} className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 px-3 py-3 text-sm font-semibold text-slate-100">
-                      <span>{option.split(" - ")[0]}</span>
-                      <span className="rounded bg-cyan-500/15 px-2 py-1 text-cyan-200">{option.split(" - ")[1]}</span>
+                    <li key={option} className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 px-3 py-3">
+                      <span className="text-lg font-medium text-slate-200">{option.split(" - ")[0]}</span>
+                      <span className="text-lg font-black text-cyan-200">{option.split(" - ")[1]}</span>
                     </li>
                   ))}
                 </ul>
+              </article>
+            ))}
+
+            {packages.slice(3).map((pkg) => (
+              <article key={pkg.name} className="lg:col-span-3 rounded-[26px] border border-cyan-300/35 bg-[linear-gradient(105deg,rgba(8,47,72,0.95),rgba(10,61,92,0.92))] p-5 shadow-lg sm:p-6">
+                <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+                  <div className="lg:max-w-sm">
+                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-cyan-300">Add-on services</p>
+                    <div className="mt-2 flex items-center gap-3">
+                      <h3 className="text-xl font-bold text-white">{pkg.name}</h3>
+                      <span className="rounded-full bg-cyan-400/20 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-cyan-200">
+                        Pricing
+                      </span>
+                    </div>
+                    <p className="mt-2 text-sm leading-6 text-sky-100">Deep interior cleaning priced by the number of seats and selected areas.</p>
+                  </div>
+
+                  <ul className="grid flex-1 gap-3 sm:grid-cols-2 lg:grid-cols-5">
+                    {pkg.options.map((option) => (
+                      <li key={option} className="flex items-center justify-between gap-3 rounded-xl border border-white/10 bg-white/5 px-3 py-3 lg:flex-col lg:items-start">
+                        <span className="text-lg font-medium text-cyan-200">{option.split(" - ")[0]}</span>
+                        <span className="text-lg font-black text-cyan-200">{option.split(" - ")[1]}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </article>
             ))}
           </div>
