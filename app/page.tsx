@@ -32,12 +32,24 @@ type Status = {
 };
 
 function buildWhatsappUrl(data: Record<string, string>) {
+
+  const preferredTime = data.preferredTime
+  ? new Date(data.preferredTime).toLocaleString("en-GB", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+    }).replace(" at ", " at ")
+  : "Not specified";
+
   const lines = [
     `Name: ${data.name}`,
     `Phone: ${data.phone}`,
     `Service: ${data.service}`,
     `Vehicle: ${data.vehicle}`,
-    `Preferred time: ${data.preferredTime || "Not specified"}`,
+    `Preferred time: ${preferredTime || "Not specified"}`,
     `Details: ${data.details || "No extra details"}`,
   ];
 
